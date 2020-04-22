@@ -11,4 +11,4 @@ if (process.env.RUNTIME_ENV !== 'browser') {
 
 const log = canUseDOM ? clientLog : serverLog;
 
-export default log;
+module.exports = log;

@@ -1,6 +1,5 @@
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import withRouter from 'react-router/withRouter';
 import Link from 'react-router-dom/Link';
@@ -20,6 +19,7 @@ function AboutPage(props) {
         This project aims to do one thing well: make server side rendering
         simple in a react application using only mature community maintained
         libraries.
+
         <Link to="/repo/michaelBenin/react-ssr-spa">demo: react-ssr-spa</Link>
       </p>
 
@@ -28,7 +28,7 @@ function AboutPage(props) {
   );
 }
 
-// You'll have these 3 props always, what changes is the values they havae depending
+// You'll have these 3 props always, what changes is the values they have depending
 // on whether or not you're rendering from the server or the client
 AboutPage.propTypes = {
   match: PropTypes.shape({}).isRequired,

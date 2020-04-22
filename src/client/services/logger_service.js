@@ -14,8 +14,10 @@ import axios from 'axios';
 function log(level, data, message) {
   return axios({
     url: '/api/v1/log',
-    type: 'POST',
-    dataType: 'json',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     data: {
       level,
       data: JSON.stringify(data),
