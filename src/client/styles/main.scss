@@ -18,16 +18,16 @@
 //@import '../../../node_modules/slick-carousel/slick/slick.scss';
 
 // Layouts
-@import '../../views/containers/layouts/layout';
+@import '../../app/containers/layouts/layout';
+
 // Pages
-@import '../../views/containers/pages/index_page/index';
-@import '../../views/containers/pages/about_page/about';
-@import '../../views/containers/pages/repo_detail_page/repo_detail';
-@import '../../views/containers/pages/not_found_page/not_found';
-@import '../../views/containers/pages/search_results_page/search_results';
+@import '../../app/about_page/about_page';
+@import '../../app/containers/pages/index_page/index';
+@import '../../app/containers/pages/repo_detail_page/repo_detail';
+@import '../../app/containers/pages/not_found_page/not_found';
+@import '../../app/containers/pages/search_results_page/search_results';
 
 // Components
-@import '../../views/components/header/header';
-@import '../../views/components/nav/nav';
-@import '../../views/components/footer/footer';
-
+@import '../../app/components/header/header';
+@import '../../app/components/nav/nav';
+@import '../../app/components/footer/footer';

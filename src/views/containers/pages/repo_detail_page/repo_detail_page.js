@@ -11,6 +11,7 @@ import Footer from './../../../components/footer/footer';
 class RepoDetail extends Component {
   componentWillMount() {
     if (!get(this.props, 'state.config.initialPageLoad')) {
+      console.log(this.props.match);
       loadData(this.props.match, this.props.dispatch, this.props.state);
     } else {
       // TODO: warm cache for PWA, don't trigger render

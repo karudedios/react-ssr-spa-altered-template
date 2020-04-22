@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+.layout {
+  @include flex-grid-row;
+
+  flex-flow: column;
+}
+
+.main {
+  margin: 4rem 0 0;
+  min-height: rem-calc(500);
+}
+
+html,
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+html.fonts-loaded,
+.fonts-loaded body {
+  font-family: Amble, sans-serif;
+}
+
+html {
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-misspelled-properties, no-vendor-prefixes
+  overflow-y: scroll;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:visited {
+    color: $blue;
+  }
+
+  &:hover {
+    color: $blue;
+  }
+
+  &:active {
+    color: $blue;
+  }
+}
+
+.fadeTranslate-enter {
+  opacity: 0;
+  transform: translate(0, -3vh);
+  position: fixed;
+  width: 100%;
+}
+
+.fadeTranslate-enter.fadeTranslate-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: opacity 500ms ease-in 500ms, transform 500ms ease-in-out 500ms;
+  width: 100%;
+}
+
+.fadeTranslate-exit {
+  opacity: 1;
+  position: fixed;
+  transform: translate(0, 0);
+  width: 100%;
+}
+
+.fadeTranslate-exit.fadeTranslate-exit-active {
+  opacity: 0;
+  transform: translate(0, 3vh);
+  transition: opacity 300ms ease-in, transform 300ms ease-in-out;
+}

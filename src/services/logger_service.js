@@ -1,7 +1,7 @@
 import { canUseDOM } from 'exenv';
 
-let serverLog = false;
-let clientLog = false;
+let serverLog;
+let clientLog;
 
 if (process.env.RUNTIME_ENV !== 'browser') {
   serverLog = require('../server/services/logger_service'); // eslint-disable-line global-require
@@ -11,4 +11,4 @@ if (process.env.RUNTIME_ENV !== 'browser') {
 
 const log = canUseDOM ? clientLog : serverLog;
 
-module.exports = log;
+export default log;
