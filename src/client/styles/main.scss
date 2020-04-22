@@ -18,14 +18,11 @@
 //@import '../../../node_modules/slick-carousel/slick/slick.scss';
 
 // Layouts
-@import '../../app/containers/layouts/layout';
+@import '../../app/layouts/layout';
 
 // Pages
-@import '../../app/about_page/about_page';
-@import '../../views/containers/pages/index_page/index';
-@import '../../views/containers/pages/repo_detail_page/repo_detail';
-@import '../../views/containers/pages/not_found_page/not_found';
-@import '../../views/containers/pages/search_results_page/search_results';
+@import '../../app/pages/index_page/index_page';
+@import '../../app/pages/about_page/about_page';
 
 // Components
 @import '../../app/components/header/header';

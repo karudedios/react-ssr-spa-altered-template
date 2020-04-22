@@ -2,7 +2,7 @@ import P from 'bluebird';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import matchRoutes from 'react-router-config/matchRoutes';
-import routes from '../react_router/react_router';
+import routes from '../app/routes';
 import createHistory from 'history/createBrowserHistory';
 import scriptJS from 'scriptjs';
 import get from 'lodash/get';
@@ -10,7 +10,7 @@ import log from './services/logger_service';
 import initialize from './utils/initializer_util';
 import configureStore from '../redux/store/store';
 import initialLoadActionCreator from '../redux/action_creators/initial_load_action_creator';
-import Root from '../views/containers/root_container';
+import Root from '../app/root';
 import { ThirdPartyJs, loadAllThirdPartyJs } from './utils/third_party_js_util';
 
 initialize().catch(function logError(err) {
@@ -75,10 +75,10 @@ function bootReact() {
 
   if (module.hot) {
     module.hot.accept(
-      ['../react_router/react_router', '../views/containers/root_container'],
+      ['../app/routes', '../app/root'],
       () => {
         // eslint-disable-next-line global-require
-        const HotLoadRoot = require('../views/containers/root_container')
+        const HotLoadRoot = require('../app/root')
           .default;
         render(
           <HotLoadRoot store={store} history={browserHistory} />,

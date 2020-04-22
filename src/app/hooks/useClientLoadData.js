@@ -54,7 +54,11 @@ import { useEffect } from 'react';
  *  // do things based on props.isLoading, propUsers and prop.error
  * }
  *
- * const mapStateToProps = ({ user: { isLoading, users, error }}) => ({ isLoading, users, error });
+ * const mapStateToProps = (state) => ({
+ *  error: state.userList.error,
+ *  users: state.userList.users,
+ *  isLoading: state.userList.isLoading,
+ * });
  *
  * export default withRouter(connect(mapStateToProps)(UserList));
  */

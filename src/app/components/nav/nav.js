@@ -4,50 +4,45 @@ import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.goToSearch = this.props.goToSearch.bind(this);
-  }
+function Nav(props) {
+  const queryEl = React.useRef({ value: '' });
 
-  render() {
-    // todo make this work with query params
-    // https://github.com/reactjs/react-router/blob/master/examples/query-params/app.js
-    return (
-      <nav className="top-nav">
-        <ul className="top-nav__link-container">
-          <li className="top-nav__link">
-            <Link to="/">react-ssr-spa</Link>
+  const search = (e) => {
+    props.goToSearch(e, queryEl.current.value);
+  };
 
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-        <form
-          className="top-nav__search-form"
-          action="/search"
-          method="GET"
-          onSubmit={this.goToSearch}
+  // todo make this work with query params
+  // https://github.com/reactjs/react-router/blob/master/examples/query-params/app.js
+  return (
+    <nav className="top-nav">
+      <ul className="top-nav__link-container">
+        <li className="top-nav__link">
+          <Link to="/">react-ssr-spa</Link>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+      <form
+        className="top-nav__search-form"
+        action="/search"
+        method="GET"
+        onSubmit={search}
+      >
+        <input
+          className="top-nav__input"
+          ref={queryEl}
+          name="query"
+          placeholder="Search"
+        />
+        <button
+          className="top-nav__button"
+          type="submit"
+          onClick={search}
         >
-          <input
-            className="top-nav__input"
-            ref={searchQuery => {
-              this.searchQuery = searchQuery;
-            }}
-            name="query"
-            type="text"
-            placeholder="Search"
-          />
-          <button
-            className="top-nav__button"
-            type="submit"
-            onClick={this.goToSearch}
-          >
-            Search
-          </button>
-        </form>
-      </nav>
-    );
-  }
+          Search
+        </button>
+      </form>
+    </nav>
+  );
 }
 
 Nav.propTypes = {
@@ -65,9 +60,8 @@ function mapStateToProps(state) {
 // https://github.com/GetExpert/redux-blog-example/blob/f6e8a544a5f335091212086b5a24c905f7db145b/app/routes/Posts/List.js
 function mapDispatchToProps(dispatch) {
   return {
-    goToSearch(e) {
+    goToSearch(e, query) {
       e.preventDefault();
-      const query = this.searchQuery.value;
       dispatch(push(`/search/${query}`));
     }
   };

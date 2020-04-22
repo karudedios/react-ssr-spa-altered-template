@@ -8,9 +8,9 @@ import path from 'path';
 import serialize from 'serialize-javascript';
 import redisClient from '../services/redis_service';
 import log from '../services/logger_service';
-import routes from '../../react_router/react_router';
+import routes from '../../app/routes';
 import configureStore from '../../redux/store/store';
-import Root from '../../views/containers/root_container';
+import Root from '../../app/root';
 import config from '../config';
 
 const featureFlags = config.get('featureFlags');

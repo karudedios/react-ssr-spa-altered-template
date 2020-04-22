@@ -5,15 +5,25 @@
   display: flex;
 
   &__link-container {
-    flex: 0 1;
+    flex: 0 1 35%;
     list-style: none;
     padding: 0;
+    margin: 0;
   }
 
   &__link {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    align-items: start;
+    justify-content: space-around;
 
     &:first-of-type {
       margin: 0;
+    }
+
+    a {
+      padding: 1rem;
     }
   }
 
