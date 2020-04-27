@@ -3,7 +3,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { StaticRouter } from 'react-router';
 
-import AboutPage from '../../../../../../src/views/containers/pages/about_page/about_page';
+import AboutPage from '../../../../../../src/app/pages/about_page/about_page';
 import Enzyme from '../../../../utils/enzyme_adapter_util';
 
 const { shallow } = Enzyme;
